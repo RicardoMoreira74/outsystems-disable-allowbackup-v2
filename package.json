@@ -1,0 +1,19 @@
+{
+  "name": "outsystems-disable-android-backup-plugin",
+  "version": "1.0.1",
+  "description": "Cordova plugin to disable Android allowBackup in OutSystems Mobile builds.",
+  "cordova": {
+    "id": "outsystems-disable-android-backup-plugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "outsystems",
+    "android",
+    "backup",
+    "allowBackup"
+  ],
+  "license": "MIT"
+}
