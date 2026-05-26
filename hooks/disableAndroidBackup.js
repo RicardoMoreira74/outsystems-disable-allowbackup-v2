@@ -20,29 +20,25 @@ module.exports = function (context) {
 
   let manifest = fs.readFileSync(manifestPath, "utf8");
 
-  const applicationTagRegex = /<application\\b([^>]*)>/;
+  const applicationTagRegex = /<application\b[^>]*>/;
 
   if (!applicationTagRegex.test(manifest)) {
     console.log("[disable-android-backup] <application> tag not found. Skipping.");
     return;
   }
 
-  manifest = manifest.replace(applicationTagRegex, function (match) {
-    let updated = match;
-
-    if (/android:allowBackup="[^"]*"/.test(updated)) {
-      updated = updated.replace(
+  manifest = manifest.replace(applicationTagRegex, function (applicationTag) {
+    if (/android:allowBackup="[^"]*"/.test(applicationTag)) {
+      return applicationTag.replace(
         /android:allowBackup="[^"]*"/,
         'android:allowBackup="false"'
       );
-    } else {
-      updated = updated.replace(
-        "<application",
-        '<application android:allowBackup="false"'
-      );
     }
 
-    return updated;
+    return applicationTag.replace(
+      "<application",
+      '<application android:allowBackup="false"'
+    );
   });
 
   fs.writeFileSync(manifestPath, manifest, "utf8");

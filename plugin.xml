@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="outsystems-disable-android-backup-plugin" version="1.0.1"
+<plugin id="outsystems-disable-android-backup-plugin" version="1.0.2"
     xmlns="http://apache.org/cordova/ns/plugins/1.0">
 
     <name>OutSystems Disable Android Backup Plugin</name>
-    <description>Disables Android allowBackup for OutSystems Mobile builds.</description>
+    <description>Disables only android:allowBackup for OutSystems Mobile builds.</description>
     <license>MIT</license>
 
     <platform name="android">
